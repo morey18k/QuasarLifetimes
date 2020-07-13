@@ -488,7 +488,7 @@ class Quasar:
             plt.ylim(-0.5,2.0)
             plt.grid()
             plt.savefig(self.name+"/"+"plots/"+self.name+"_fit.pdf")
-            plt.savefig("continuum_fit_results/fit_plots/"+self.name+"_fit.pdf")
+            #plt.savefig("continuum_fit_results/fit_plots/"+self.name+"_fit.pdf")
 
     def plot_mc_results(self):
         fig = plt.figure()

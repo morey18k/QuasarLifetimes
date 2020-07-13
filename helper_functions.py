@@ -131,3 +131,36 @@ def ivarsmooth(flux, ivar, window):
     else:
         smoothflux = np.roll(flux, 2 * halfwindow + 1)  # kill off NAN's
     return smoothflux, outivar
+
+
+def like_computation(covars, x, y, models, all_pixels = True, diag = True, lower = 1190):
+    
+    if not all_pixels:
+        low_pixel = np.argmin(np.abs(x - lower))
+    else:
+        low_pixel = 0
+
+    x = x[low_pixel:]
+    y = y[low_pixel:]    
+    
+    covars = [c[low_pixel:, low_pixel:] for c in covars]
+
+    if diag:
+        covars = [np.diag(np.diag(c)) for c in covars]
+
+    invs = [np.linalg.inv(c) for c in covars]
+    like_grid = np.array([log_like_grid(x, y, invs[k], models[k]) for k in range(80)])
+    return like_grid
+
+def log_like_grid(x, y, invcov, modler):
+    model = modler(x)
+    k = invcov.shape[0]
+    sign, lndet = np.linalg.slogdet(invcov)
+    ynew  = np.array([model - y]).T
+    chisq= float(ynew.T@invcov@ynew)
+    return -0.5*k*np.log(2*np.pi)-0.5*chisq+0.5*lndet
+
+
+def rangetup(array, ranger = 100):
+    maxer = np.amax(array)
+    return (maxer - ranger, maxer+ranger*0.1)

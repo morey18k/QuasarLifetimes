@@ -13,7 +13,8 @@ names3 = ["PSOJ231-20"]
 for k in range(vals.shape[0]):
     decoded = [el.decode() if type(el)==type(vals[k][0]) else el for el in vals[k]]
     name, file_nir, file_vis, redshift, dv, magnitude, inst = decoded
-    quas.append(Quasar(name, "complete_sample/spectra/"+file_nir, "complete_sample/spectra/"+file_vis, magnitude, redshift, typeof = inst, sm_pix = smpixes[k], load = False, draw= True)) 
+    if name == 'J1509-1749':
+        quas.append(Quasar(name, "complete_sample/spectra/"+file_nir, "complete_sample/spectra/"+file_vis, magnitude, redshift, typeof = inst, sm_pix = smpixes[k], load = False, draw= True)) 
 
 for quasar in quas:
     quasar.fit_pipeline()
