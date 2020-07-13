@@ -1,0 +1,17 @@
+﻿Name,NearIR,Vis,redshift,dv,M1450,type
+PSOJ011+09,spec1d_coadd_PSOJ011+09_tellcorr_nir.fits,spec1d_stack_PSOJ011+09_tellcorr.fits,6.4693,100,-26.85,xshooter
+PSOJ036+03,spec1d_coadd_J0226+0302_tellcorr_nir_01.fits,J0226+0302_XSHOOTER_VIS.fits,6.5412,100,-26.28,xshooter
+PSOJ065-26,spec1d_coadd_J0421-2657_tellcorr_nir_02.fits,J065_coadd.fits,6.1877,100,-27.25,xshooter
+PSOJ159-02,spec1d_coadd_J1036-0232_tellcorr_nir_final_02.fits,J1036-0232_XSHOOTER_VIS.fits,6.3809,100,-26.59,xshooter
+PSOJ158-14,spec1d_coadd_J158-14_tellcorr_nir.fits,spec1d_stack_PSOJ158-14_tellcorr.fits,6.0681,100,-27.41,xshooter
+J0842+1218,spec1d_coadd_J0842+1218_tellcorr_nir_final_02.fits,J0842_coadd.fits,6.0763,100,-26.91,xshooter
+J1306+0356,spec1d_coadd_J1306+0356_tellcorr_nir_01.fits,J1306_coadd.fits,6.0337,100,-26.81,xshooter
+J1319+0950,spec1d_coadd_J1319+0950_tellcorr_nir_05.fits,J1319_coadd.fits,6.133,100,-26.88,xshooter
+J1509-1749,spec1d_coadd_J1509-1749_tellcorr_nir_01.fits,J1509_coadd.fits,6.1225,100,-27.14,xshooter
+PSOJ231-20,spec1d_coadd_J1526-2050_tellcorr_nir_01.fits,J1526-2049_XShooter_VIS_tellcorr.fits,6.5864,100,-27.2,xshooter
+PSOJ359-06,spec1d_coadd_PSOJ359-06_tellcorr_nir.fits,spec1d_stack_PSOJ359-06_tellcorr.fits,6.1719,100,-26.79,xshooter
+PSOJ323+12,spec1d_coadd_J2132+1217_tellcorr_nir_02.fits,J2132+1217_DEIMOS_830G_8100_tellcorr.fits,6.5872,100,-27.06,xshooter
+SDSSJ1335+3533,J1335p3533_det6.fits,J1335p3533_det2.fits,5.9012,100,-26.67,deimos
+SDSSJ1143+3803,J1143p3807_det7.fits,J1143p3807_det3.fits,5.8367,100,-26.69,deimos
+PSOJ217-16,P217-16_F.fits,,6.1498,100,-26.93,fire
+SDSSJ1148+5251,,SDSSJ1148+5251_stack.fits,6.4189,100,-26.81,solo
