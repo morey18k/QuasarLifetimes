@@ -37,6 +37,10 @@ class QuasarStack:
         fluxes = []
         variances = []
         maskers = []
+        act_bin = (self.upper-self.lower)/self.num_bins
+        extra = 15
+        self.upper += extra*act_bin 
+        self.num_bins += extra
         self.wave_grid = np.linspace(self.lower, self.upper, self.num_bins+1)
         for i in range(self.num_quasar):
             #quasar = self.quasar_list[i]

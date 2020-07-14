@@ -60,59 +60,29 @@ for k in range(vals.shape[0]):
         continue
     quas12.append(Quasar(name, "complete_sample/spectra/"+file_nir, "complete_sample/spectra/"+file_vis, magnitude, redshift,draw = False, load = True, typeof = inst, sm_pix = smpixes[k])) 
 
-fig = plt.figure(figsize = (8,10))
+
+fig, axes = plt.subplots(8, 2, sharex = True, figsize = (7.2,9))
 
 
-vals = []
-for q in (quas16):
-    if q.name != "SDSSJ1148+5251":
-        vals.append(np.amin(q.wav_obs))
-
-minner = min(vals)
-ax = [plt.subplot(811)]
-
-for k, q in enumerate(quas16[:8]):
+for k, q in enumerate(quas15):
     smoothed, oivar = ivarsmooth(q.cont_norm, q.cont_std**(-2.0), 3)
     smoothed_std = oivar**(-0.5)
-    ax[k].plot(q.cont_wav, smoothed, linewidth = 0.3, drawstyle = 'steps', color = 'black')
-    ax[k].text(0.01, 0.7, q.name+"\n"+"$z={}$".format(q.redshift), transform = ax[k].transAxes)
+    axes[(k+1)%8, k//8].plot(q.cont_wav, smoothed, linewidth = 0.3, drawstyle = 'steps', color = 'black')
+    axes[(k+1)%8, k//8].text(0.01, 0.7, q.name+"\n"+"$z={}$".format(q.redshift), transform = axes[(k+1)%8, k//8].transAxes)
     top = 1.5
     bot = -0.2
-    ax[k].set_ylim(bot, top = top)
-    if k!=7:
-        plt.setp(ax[k].get_xticklabels(), visible = False)
-        ax.append(plt.subplot(812+k, sharex = ax[0]))
-    ax[k].set_xlim(1177,1220)
+    axes[(k+1)%8, k//8].set_ylim(bot, top = top)
+    if k==7 or k==13:
+        plt.setp(axes[(k+1)%8, k//8].get_xticklabels(), visible = True)
+    axes[(k+1)%8, k//8].set_xlim(1177,1220)
+
+axes[0][1].set_axis_off()
 plt.subplots_adjust(wspace=None, hspace=0)
-plt.xlabel("Rest Wavelength [\\AA]")
-fig.text(0.005, 0.5, "Continuum Normalized Flux", va= 'center', rotation = 'vertical')
+#plt.xlabel("Rest Wavelength [\\AA]")
+fig.text(0, 0.5, "Continuum Normalized Flux", va= 'center', rotation = 'vertical')
+fig.text(0.5, 0.0, "Rest Wavelength [\\AA]", ha= 'center')
 fig.tight_layout()
-plt.savefig('cont_part_1.pdf')
-
-
-
-fig = plt.figure(figsize = (8,10))
-ax = [plt.subplot(811)]
-
-for k, q in enumerate(quas16[8:]):
-    smoothed, oivar = ivarsmooth(q.cont_norm, q.cont_std**(-2.0), 3)
-    smoothed_std = oivar**(-0.5)
-    top = 1.5
-    bot = -0.2
-    ax[k].set_ylim(bot, top = top)
-    ax[k].plot(q.cont_wav, smoothed, linewidth = 0.3, color = 'black', drawstyle = 
-            'steps')
-    ax[k].text(0.01, 0.7, q.name+"\n"+"$z={}$".format(q.redshift), transform = ax[k].transAxes)
-
-    if k!=7:
-        plt.setp(ax[k].get_xticklabels(), visible = False)
-        ax.append(plt.subplot(812+k, sharex = ax[0]))
-    ax[k].set_xlim(1177, 1220)
-plt.subplots_adjust(wspace=None, hspace=0)
-plt.xlabel("Rest Wavelength [\\AA]")
-fig.text(0.005, 0.5, "Continuum Normalized Flux", va= 'center', rotation = 'vertical')
-fig.tight_layout()
-plt.savefig('cont_part_2.pdf')
+plt.savefig('cont_all.pdf')
 plt.show()
 
 bin_size = 0.25

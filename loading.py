@@ -66,7 +66,7 @@ for k, bin_size in enumerate(bin_list):
     if k!=4:
         plt.setp(ax[k].get_xticklabels(), visible = False)
         ax.append(plt.subplot(512+k, sharex = ax[0]))
-    ax[k].set_xlim(1177,1220)
+    ax[k].set_xlim(1177,1221)
 
 
 plt.subplots_adjust(wspace=None, hspace=0)

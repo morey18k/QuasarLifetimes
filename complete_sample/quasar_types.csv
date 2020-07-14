@@ -9,9 +9,9 @@ J1306+0356,spec1d_coadd_J1306+0356_tellcorr_nir_01.fits,J1306_coadd.fits,6.0337,
 J1319+0950,spec1d_coadd_J1319+0950_tellcorr_nir_05.fits,J1319_coadd.fits,6.133,100,-26.88,xshooter
 J1509-1749,spec1d_coadd_J1509-1749_tellcorr_nir_01.fits,J1509_coadd.fits,6.1225,100,-27.14,xshooter
 PSOJ231-20,spec1d_coadd_J1526-2050_tellcorr_nir_01.fits,J1526-2049_XShooter_VIS_tellcorr.fits,6.5864,100,-27.2,xshooter
-PSOJ359-06,spec1d_coadd_PSOJ359-06_tellcorr_nir.fits,spec1d_stack_PSOJ359-06_tellcorr.fits,6.1719,100,-26.79,xshooter
+SDSSJ1143+3803,J1143p3807_det7.fits,J1143p3807_det3.fits,5.8367,100,-26.69,deimos
 PSOJ323+12,spec1d_coadd_J2132+1217_tellcorr_nir_02.fits,J2132+1217_DEIMOS_830G_8100_tellcorr.fits,6.5872,100,-27.06,xshooter
 SDSSJ1335+3533,J1335p3533_det6.fits,J1335p3533_det2.fits,5.9012,100,-26.67,deimos
-SDSSJ1143+3803,J1143p3807_det7.fits,J1143p3807_det3.fits,5.8367,100,-26.69,deimos
+PSOJ359-06,spec1d_coadd_PSOJ359-06_tellcorr_nir.fits,spec1d_stack_PSOJ359-06_tellcorr.fits,6.1719,100,-26.79,xshooter
 PSOJ217-16,P217-16_F.fits,,6.1498,100,-26.93,fire
 SDSSJ1148+5251,,SDSSJ1148+5251_stack.fits,6.4189,100,-26.81,solo

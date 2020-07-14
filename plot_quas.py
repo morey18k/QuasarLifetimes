@@ -61,7 +61,7 @@ for k in range(vals.shape[0]):
     quas12.append(Quasar(name, "complete_sample/spectra/"+file_nir, "complete_sample/spectra/"+file_vis, magnitude, redshift,draw = False, load = True, typeof = inst, sm_pix = smpixes[k])) 
 
 
-fig = plt.figure(figsize = (8,10))
+fig = plt.figure(figsize = (7.2,9))
 
 
 vals = []
@@ -72,7 +72,7 @@ for q in (quas16):
 minner = min(vals)
 ax = [plt.subplot(811)]
 
-for k, q in enumerate(quas16[:8]):
+for k, q in enumerate(quas15[:8]):
     smoothed_other, oivar = ivarsmooth(q.un_flux, q.un_ivar, 21)
     smoothed_other = np.ma.array(smoothed_other, mask = q.wav_obs.mask)
     ax[k].plot(q.wav_obs, smoothed_other, linewidth = 0.3, drawstyle = 'steps', color = 'black')
@@ -92,10 +92,10 @@ plt.savefig('spectra_part_1.pdf')
 
 
 
-fig = plt.figure(figsize = (8,10))
-ax = [plt.subplot(811)]
+fig = plt.figure(figsize = (7.2,9*(7/8)))
+ax = [plt.subplot(711)]
 
-for k, q in enumerate(quas16[8:]):
+for k, q in enumerate(quas15[8:]):
     smoothed, oivar = ivarsmooth(q.un_flux, q.un_ivar, 21)
     smoothed_std = oivar**(-0.5)
     top = np.amax(q.pca_model*q.normalization)*1.3
@@ -113,9 +113,9 @@ for k, q in enumerate(quas16[8:]):
     ax[k].plot(q.obs_wav_model, q.pca_model*q.normalization, linewidth = 0.3, color = 'red', drawstyle = 'steps')
     ax[k].text(0.01, 0.7, q.name+"\n"+"$z={}$".format(q.redshift), transform = ax[k].transAxes)
 
-    if k!=7:
+    if k!=6:
         plt.setp(ax[k].get_xticklabels(), visible = False)
-        ax.append(plt.subplot(812+k, sharex = ax[0]))
+        ax.append(plt.subplot(712+k, sharex = ax[0]))
     ax[k].set_xlim(6000, 22000)
 plt.subplots_adjust(wspace=None, hspace=0)
 plt.xlabel("Observed Wavelength [\\AA]")
